@@ -2,7 +2,7 @@
 
 import socket
 import ast
-import Transaction
+from Transaction import Transaction
 import sys
 import os
 
@@ -32,7 +32,7 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
             with open(received_dict['from_address'], 'r') as file:
               pk = file.read()
 
-            tx = Transaction.Transaction(pk, received_dict['to_address'], received_dict["amount"])
+            tx = Transaction(pk, received_dict['to_address'], received_dict["amount"])
             result = tx.sign()
             response = {
               'id': received_dict['id'],
