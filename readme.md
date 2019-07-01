@@ -1,7 +1,7 @@
 ## SETUP
 1. Open ```client.py``` file
 2. Change ```id, from_address, to_address, amount``` as you wish.
-3. Create a file named same as your ```from_address``` wallet address and put your ```privatekey``` in this file
+3. Create a file named same as your ```from_address``` wallet address and put your ```private key``` in this file
 
 ## Run the app
 In this case I use python 3.7.3 to run the application.
@@ -13,16 +13,26 @@ pip install web3
 
 Run the server by:
 ```shell
-python vault.py
+python vault.py <path>
 ```
 OR
 ```shell
-./vault.py
+./vault.py <path>
+```
+
+Example:
+```shell
+./vault.py ./socket
 ```
 
 Run the client by:
 ```shell
-python client.py
+python client.py <path>
+```
+
+Example
+```shell
+./client.py ./socket
 ```
 
 If you got an error ```permission denied: ./vault.py``` or ```permission denied: ./client.py```, you should make those file executable by running:

@@ -4,3 +4,4 @@ __pycache__/
 build
 vault.spec
 *.pyc
+.DS_Store
