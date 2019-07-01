@@ -39,5 +39,6 @@ You can run the binary as follow:
 
 ### Credit:
 
-https://realpython.com/python-sockets
-https://github.com/ethereum/web3.py
+[Real Python](https://realpython.com/python-sockets)
+
+[Web3py](https://github.com/ethereum/web3.py)
