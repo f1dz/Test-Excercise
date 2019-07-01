@@ -36,3 +36,8 @@ You can run the binary as follow:
 ```shell
 ./vault
 ```
+
+### Credit:
+
+https://realpython.com/python-sockets
+https://github.com/ethereum/web3.py
