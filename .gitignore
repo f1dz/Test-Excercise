@@ -1,0 +1,6 @@
+.vscode
+__pycache__/
+0xEeC9B9721Fe2458a5D112B7A47a9f03dBe749634
+build
+vault.spec
+*.pyc
