@@ -3,17 +3,17 @@
 import socket
 import ast
 import Transaction
+import sys
 
-HOST = '127.0.0.1'
-PORT = 65432
+path = sys.argv[1]  # get socket path
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-  s.bind((HOST, PORT))
+with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
+  s.bind(path)
   while True:
     s.listen(1)
     conn, addr = s.accept()
     with conn:
-      print('Connected by', addr)
+      print('Connected by', path)
       while True:
         data = conn.recv(1024)
         if(data):
