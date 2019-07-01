@@ -7,7 +7,7 @@ class Transaction:
 
   testnet = 'https://ropsten.infura.io/v3/35dc5ccc706a4d3497a88028b65aa127'
   chainId = 3 # 1 : mainnet, 3 : ropsten 
-  debug = True
+  debug = False
   gas = 2000000
 
   def __init__(self, private_key, to, value):
@@ -20,6 +20,11 @@ class Transaction:
     self.nonce = self.w3.eth.getTransactionCount(self.account.address)
 
   def send(self):
+    signed = self.sign()
+    tx = self.w3.eth.sendRawTransaction(signed)
+    return tx.hex()
+  
+  def sign(self):
     detail = {
       'to': self.to,
       'value': self.value,
@@ -33,5 +38,4 @@ class Transaction:
       print(detail)
 
     signed = self.w3.eth.account.signTransaction(detail, self.private_key)
-    tx = self.w3.eth.sendRawTransaction(signed.rawTransaction)
-    return tx.hex()
+    return signed.rawTransaction.hex()
