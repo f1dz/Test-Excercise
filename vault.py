@@ -4,8 +4,15 @@ import socket
 import ast
 import Transaction
 import sys
+import os
 
 path = sys.argv[1]  # get socket path
+
+# remove path if exist
+try:
+    os.unlink(path)
+except FileNotFoundError:
+    pass
 
 with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
   s.bind(path)
@@ -26,7 +33,7 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
               pk = file.read()
 
             tx = Transaction.Transaction(pk, received_dict['to_address'], received_dict["amount"])
-            result = tx.send()
+            result = tx.sign()
             response = {
               'id': received_dict['id'],
               'tx': result
