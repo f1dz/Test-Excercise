@@ -27,7 +27,7 @@ class Transaction:
   def sign(self):
     detail = {
       'to': self.to,
-      'value': self.value,
+      'value': (self.value - self.gas_price),
       'gasPrice': self.gas_price,
       'gas': self.gas,
       'nonce': self.nonce,
